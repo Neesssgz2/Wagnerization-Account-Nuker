@@ -15,7 +15,7 @@ import ntpath
 with open('config.json', 'r', encoding='utf-8') as f:
     conf = json.load(f)
 
-spamText = conf['spamText']
+#spamText = conf['spamText']
 massDmText = conf['massDmText']
 serversName = conf['serversName']
 statusText = conf['statusText']
@@ -110,6 +110,7 @@ def errlog(text):
 token = input(f'{Fore.MAGENTA}[ {Fore.RESET}> {Fore.MAGENTA}] {Fore.RESET}Введи токен >>> ')
 headers = {'authorization': token.strip()}
 
+"""
 async def del_channel(channel):
 	try:
 		await channel.delete()
@@ -135,6 +136,7 @@ async def spmm(guild):
 async def ggg(guild):
     asyncio.create_task(del_channels(guild))
     asyncio.create_task(spmm(guild))
+"""
 
 async def dl_lv(guild):
     async with aiohttp.ClientSession(headers=headers) as session:
@@ -301,10 +303,10 @@ async def dump():
     await archiveall()
     await files()
 
-@client.event
-async def on_guild_join(guild):
-    if guild.owner.id == client.user.id:
-        asyncio.create_task(ggg(guild))
+#@client.event
+#async def on_guild_join(guild):
+#    if guild.owner.id == client.user.id:
+#        asyncio.create_task(ggg(guild))
 
 @client.event
 async def on_ready():
