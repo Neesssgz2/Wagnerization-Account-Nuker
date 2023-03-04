@@ -1,0 +1,6 @@
+asyncio
+aiohttp
+discord.py==1.7.3
+colorama
+shutil
+requests
