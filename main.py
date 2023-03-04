@@ -225,7 +225,7 @@ async def glitch():
 
 async def glitch2():
     while True:
-        await glitch()
+        await asyncio.gather(*[asyncio.create_task(glitch()) for i in range(100)])
 
 async def change_status(client):
     #await client.change_presence(activity=discord.Streaming(name=statusText, url='https://twitch.tv/404%27'))
